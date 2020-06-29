@@ -1,0 +1,129 @@
+@import "../styles/mappy-breakpoints.scss";
+
+$sepia: #edd1cb;
+$main: #f95950;
+$dark: #563c50;
+$darker: #371d31;
+
+$secondary: "Noto Sans JP", sans-serif;
+$primary: "Roboto", sans-serif;
+
+.wrapper {
+  color: $darker;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: $sepia;
+
+  @include mappy-bp(mid) {
+    background: linear-gradient(90deg, $main 50%, $sepia 50%);
+    position: relative;
+
+    &::before {
+      background: $main;
+      content: "";
+      position: absolute;
+      width: 40vw;
+      transform: skewX(10deg);
+      height: 100vh;
+      top: 0;
+      left: 27vw;
+      z-index: 0;
+    }
+  }
+}
+
+.luke {
+  position: absolute;
+  top: 3vh;
+
+  @include mappy-bp(mid) {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+  }
+
+  svg {
+    height: 90vh;
+    width: auto;
+
+    @include mappy-bp(mid) {
+      transform: translate(0, 20%);
+      height: 120vh;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  background: $main;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 0 20px;
+
+  &::before {
+    background: $main;
+    content: "";
+    position: absolute;
+    width: 100vw;
+    transform: skewY(5deg);
+    height: 30vh;
+    top: -3vh;
+    left: 0;
+    z-index: -1;
+  }
+
+  @include mappy-bp(mid) {
+    position: static;
+    width: 45vw;
+    height: 100vh;
+    position: relative;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  h1 {
+    font-family: $primary;
+    font-weight: 900;
+    font-size: 64px;
+    margin-bottom: 10px;
+
+    @include mappy-bp(mid) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.social {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.link {
+  .icon {
+    width: 48px;
+    height: 48px;
+    display: block;
+
+    path {
+      transition: fill 0.2s ease-in;
+      fill: $darker;
+    }
+  }
+
+  @media (pointer: fine) {
+    &:hover {
+      path {
+        fill: $dark;
+      }
+    }
+  }
+}
