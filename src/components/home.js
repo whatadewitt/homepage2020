@@ -45,7 +45,7 @@ const Home = () => {
         </div>
         <div className={styles.social}>
           <a
-            onMouseOver={brows}
+            onMouseEnter={brows}
             onFocus={brows}
             href="http://github.com/whatadewitt"
             rel="noopener noreferrer"
@@ -68,7 +68,7 @@ const Home = () => {
           </a>
 
           <a
-            onMouseOver={brows}
+            onMouseEnter={brows}
             onFocus={brows}
             href="https://www.twitter.com/whatadewitt"
             rel="noopener noreferrer"
@@ -91,7 +91,7 @@ const Home = () => {
           </a>
 
           <a
-            onMouseOver={brows}
+            onMouseEnter={brows}
             onFocus={brows}
             href="https://www.linkedin.com/in/lukedewitt/"
             rel="noopener noreferrer"

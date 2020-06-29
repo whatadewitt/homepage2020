@@ -15,7 +15,22 @@ $primary: "Roboto", sans-serif;
   overflow: hidden;
   background: $sepia;
 
-  @include mappy-bp(mid) {
+  &::before {
+    background: $main;
+    content: "";
+    position: absolute;
+    width: 100vw;
+    transform: skewY(5deg);
+    height: 30vh;
+    top: -3vh;
+    left: 0;
+
+    @include mappy-bp(tablet) {
+      content: none;
+    }
+  }
+
+  @include mappy-bp(tablet) {
     background: linear-gradient(90deg, $main 50%, $sepia 50%);
     position: relative;
 
@@ -36,19 +51,35 @@ $primary: "Roboto", sans-serif;
 .luke {
   position: absolute;
   top: 3vh;
+  left: 50%;
+  transform: translateX(-50%);
 
-  @include mappy-bp(mid) {
+  @include mappy-bp(small) {
+    top: 5vh;
+  }
+
+  @include mappy-bp(tablet) {
     top: auto;
+    left: auto;
+    transform: none;
     bottom: 0;
     right: 0;
-    z-index: 0;
+    z-index: 1;
+  }
+
+  @include mappy-bp(medium) {
+    right: 3vw;
   }
 
   svg {
     height: 90vh;
     width: auto;
 
-    @include mappy-bp(mid) {
+    @include mappy-bp(small) {
+      height: 95vh;
+    }
+
+    @include mappy-bp(tablet) {
       transform: translate(0, 20%);
       height: 120vh;
     }
@@ -74,20 +105,28 @@ $primary: "Roboto", sans-serif;
     width: 100vw;
     transform: skewY(5deg);
     height: 30vh;
-    top: -3vh;
+    top: -5vh;
     left: 0;
     z-index: -1;
   }
 
-  @include mappy-bp(mid) {
+  @include mappy-bp(small) {
+    padding-bottom: 40px;
+  }
+
+  @include mappy-bp(tablet) {
     position: static;
-    width: 45vw;
+    width: 40vw;
     height: 100vh;
     position: relative;
 
     &::before {
       content: none;
     }
+  }
+
+  @include mappy-bp(medium) {
+    width: 45vw;
   }
 
   h1 {
